@@ -4,7 +4,9 @@ import Sidebar from './Sidebar';
 import MainContent from './MainContent';
 import './App.css';
 import UsersList from './components/UsersList';  // ← import your component
-
+import ContainersList from './components/ContainersList';  // ← import your component
+import RecordsByDate from './components/RecordsByDate';
+import RecordsByLocation from './components/RecordsByLocation';
 
 const App = () => {
   return (
@@ -13,9 +15,10 @@ const App = () => {
         <Sidebar />
         <div className="content">
           <Routes>
-            <Route path="/users" element={<MainContent dataUrl="http://54.236.88.92:3001/api/users" />} />
-            <Route path="/data2" element={<MainContent dataUrl="http://example.com/api/data2" />} />
-            <Route path="/data3" element={<MainContent dataUrl="http://example.com/api/data3" />} />
+            <Route path="/users" element={<UsersList />} />
+            <Route path="/containers" element={<ContainersList />} />
+              <Route path="/records/date" element={<RecordsByDate />} />
+              <Route path="/records/location" element={<RecordsByLocation />} />
           </Routes>
         </div>
       </div>
