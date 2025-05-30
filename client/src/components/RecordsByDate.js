@@ -1,6 +1,6 @@
 // src/components/RecordsByDate.js
 import React, { useEffect, useState } from 'react';
-import RecordsTable from './RecordsTable';
+import RecordsTableDate from './RenderRecordsTableDate';
 
 function RecordsByDate() {
   const [containers, setContainers] = useState([]);
@@ -39,7 +39,7 @@ function RecordsByDate() {
         ))}
       </select>
 
-      {records.length > 0 && <RecordsTable records={records} />}
+      {records.length > 0 && <RecordsTableDate records={records} />}
     </div>
   );
 }

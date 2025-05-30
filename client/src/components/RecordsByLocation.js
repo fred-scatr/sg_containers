@@ -1,6 +1,6 @@
 // src/components/RecordsByLocation.js
 import React, { useEffect, useState } from 'react';
-import RecordsTable from './RecordsTable';
+import RecordsTableLocation from './RenderRecordsTableLocation';
 
 function RecordsByLocaton() {
   const [containers, setContainers] = useState([]);
@@ -39,7 +39,7 @@ function RecordsByLocaton() {
         ))}
       </select>
 
-      {records.length > 0 && <RecordsTable records={records} />}
+      {records.length > 0 && <RecordsTableLocation records={records} />}
     </div>
   );
 }

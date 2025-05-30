@@ -3,7 +3,9 @@ import './Sidebar.css';
 
 function Sidebar() {
   return (
+  
 <ul className="sidebar">
+  <h1>Menu</h1>
   <li><Link to="/users">Users</Link></li>
   <li><Link to="/containers">Containers</Link></li>
   <li>
