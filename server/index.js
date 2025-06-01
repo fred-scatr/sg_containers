@@ -14,11 +14,12 @@ const app = express();
 debugger;
 console.log("🚀 Server started");
 
-app.use(cors({
-  origin: 'http://18.189.189.23:3000'  // frontend origin
-  //origin: 'http://localhost:3000'  // frontend origin
-}));
 app.use(express.json());
+
+app.use(cors({
+  origin: `${process.env.CORS_USE_REACT_FRONT_END}` // Match your React app's URL
+}));
+
 
 console.log('DB_USER is:', process.env.DB_USER);
 // MySQL connection pool
@@ -32,6 +33,7 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0
 });
+
 
 // API route to get all users
 app.get('/api/users', async (req, res) => {
