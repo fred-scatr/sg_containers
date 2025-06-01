@@ -7,8 +7,13 @@ function RecordsByDate() {
   const [selectedId, setSelectedId] = useState('');
   const [records, setRecords] = useState([]);
 
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+  console.log(`baseUrl: ${baseUrl}`);
+
+
   useEffect(() => {
-    fetch('http://localhost:3001/api/containers')
+     fetch('  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+     console.log(`baseUrl: ${baseUrl}/api/records`)
       .then(res => res.json())
       .then(data => setContainers(data))
       .catch(err => console.error('Error fetching containers:', err));
@@ -45,3 +50,4 @@ function RecordsByDate() {
 }
 
 export default RecordsByDate;
+

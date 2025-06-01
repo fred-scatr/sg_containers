@@ -1,15 +1,17 @@
-// src/components/ContainersList.js
 import React, { useEffect, useState } from 'react';
 import './ContainersList.css';
 
 function ContainersList() {
   const [containers, setContainers] = useState([]);
 
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+  console.log(`baseUrl: ${baseUrl}`);
+
   useEffect(() => {
-    fetch('http://127.0.0.1:3001/api/containers')
-      .then(res => res.json())
-      .then(data => setContainers(data))
-      .catch(err => console.error('Error fetching containers:', err));
+  fetch(`${baseUrl}/api/containers`)
+    .then(res => res.json())
+    .then(data => setContainers(data))
+    .catch(err => console.error('Error fetching containers:', err));
   }, []);
 
   return (

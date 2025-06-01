@@ -15,8 +15,8 @@ debugger;
 console.log("🚀 Server started");
 
 app.use(cors({
-  //origin: 'http://54.226.113.111:3000'  // frontend origin
-  origin: 'http://localhost:3000'  // frontend origin
+  origin: 'http://18.189.189.23:3000'  // frontend origin
+  //origin: 'http://localhost:3000'  // frontend origin
 }));
 app.use(express.json());
 
