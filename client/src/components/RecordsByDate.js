@@ -7,26 +7,31 @@ function RecordsByDate() {
   const [selectedId, setSelectedId] = useState('');
   const [records, setRecords] = useState([]);
 
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
-  console.log(`baseUrl: ${baseUrl}`);
+  console.log(`ip = `, process.env.REACT_APP_API_BASE_URL);
 
+  console.log(`baseUrl: ${process.env.REACT_APP_API_BASE_URL}`);
+
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+  const fullUrl = `${baseUrl}/api/records`;
+  const fullUrlContainers = `${baseUrl}/api/containers`;
+
+  console.log("Fetching from:", fullUrl); // ✅ Confirm this prints
 
   useEffect(() => {
-     fetch('  const baseUrl = process.env.REACT_APP_API_BASE_URL;
-     console.log(`baseUrl: ${baseUrl}/api/records`)
+    fetch(`${fullUrlContainers}`)
       .then(res => res.json())
       .then(data => setContainers(data))
       .catch(err => console.error('Error fetching containers:', err));
-  }, []);
+  }, [fullUrlContainers]);
 
   useEffect(() => {
     if (selectedId) {
-      fetch(`http://localhost:3001/api/records?filter=date&containerId=${selectedId}`)
+      fetch(`${fullUrl}?filter=date&containerId=${selectedId}`)
         .then(res => res.json())
         .then(data => setRecords(data))
         .catch(err => console.error('Error fetching records:', err));
     }
-  }, [selectedId]);
+  }, [selectedId, fullUrl]);
 
   return (
     <div className="containers-list">
