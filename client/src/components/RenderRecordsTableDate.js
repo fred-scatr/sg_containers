@@ -11,7 +11,9 @@ function RenderRecordsTableDate({ records }) {
           <tr>
             <th>Timestamp</th>
             <th>Location</th>
+            <th>Transit</th>
             <th>Weight (kg)</th>
+            <th>User id</th>
             <th>Condition</th>
             <th>Image</th>
           </tr>
@@ -21,7 +23,9 @@ function RenderRecordsTableDate({ records }) {
             <tr key={record.record_id}>
               <td>{new Date(record.timestamp).toLocaleString()}</td>
               <td>{record.location}</td>
+              <td>{record.transit}</td>
               <td>{parseFloat(record.weight).toFixed(1)}</td>
+              <td>{record.user_id}</td>
               <td>{record.condition_notes}</td>
               <td>
                 {record.image_path ? (

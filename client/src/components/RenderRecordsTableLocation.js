@@ -12,6 +12,8 @@ function RecordsTableLocation({ records }) {
             <th>Location</th>
             <th>Timestamp</th>
             <th>Weight (kg)</th>
+            <th>transit</th>
+            <th>User id</th>
             <th>Condition</th>
             <th>Image</th>
           </tr>
@@ -22,6 +24,8 @@ function RecordsTableLocation({ records }) {
               <td>{record.location}</td>
               <td>{new Date(record.timestamp).toLocaleString()}</td>
               <td>{parseFloat(record.weight).toFixed(1)}</td>
+              <td>{record.transit}</td>
+              <td>{record.user_id}</td>
               <td>{record.condition_notes}</td>
               <td>
                 {record.image_path ? (
